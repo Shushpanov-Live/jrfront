@@ -1,0 +1,18 @@
+{% extends "glavSite/maket.html" %}
+
+{% block head %}
+	<title>Главная</title>
+{% load static %}
+    <link href="{% static 'css/sitesite.css' %}" rel="stylesheet" type="text/css">
+{% endblock head %}
+
+
+{% block content %}
+	<marquee class="slide1" behavior="slide" scrollamount="85">
+			<div  class="fon">
+				<form>
+				<button formaction="{% url 'account_login' %}" class="button20">TELEGRAMM BOT</button>
+				</form>
+			</div>
+	</marquee>
+{% endblock content %}

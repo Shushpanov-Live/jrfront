@@ -1,0 +1,114 @@
+body {
+	margin: 0;
+}
+.fon{
+	margin-left: 40%;
+	width: 40%;
+	height: auto;
+	padding: 10px 20px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+	border: 5px solid #4d4d4d;
+	color: black;
+}
+
+form{
+	margin-top: 20px;
+	text-align: center; 
+}
+
+.settings { 
+    text-align: center; 
+}
+
+.settings p {
+	font-size: 23px;
+}
+
+.invisibl {
+	display: none;
+}
+
+
+/* ��������� */
+
+button.gos {
+	margin-right: 0px;
+	width: 200px;
+	height: 65px;
+	font-size: 20px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #872a74;
+  	padding: 10px 0px;
+  	outline: none;
+	border: none;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+button.gos:focus {outline: none;}
+button.gos:hover { background: #7a2669; }
+button.gos:active { background: #7a2669; }
+
+
+
+
+/*------------------------------����� ������--------------------------*/
+
+button.cam {
+	width: 150px;
+	height: 50px;
+	font-size: 20px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #872a74;
+  	padding: 10px 0px;
+  	outline: none;
+	border: none;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+button.cam:focus {outline: none;}
+button.cam:hover { background: #7a2669; }
+button.cam:active { background: #7a2669; }
+ 
+p.borderBelow {
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+}
+ 
+video {
+  height: 232px;
+  margin: 0 12px 20px 0;
+  vertical-align: top;
+  width: calc(20em - 10px);
+}
+ 
+ 
+video:last-of-type {
+  margin: 0 0 20px 0;
+}
+ 
+video#gumVideo {
+  margin: 0 20px 20px 0;
+}
+ 
+@media screen and (max-width: 500px) {
+  button {
+    font-size: 0.8em;
+    width: calc(33% - 5px);
+  }
+}
+ 
+@media screen and (max-width: 720px) {
+  video {
+    height: calc((50vw - 48px) * 3 / 4);
+    margin: 0 10px 10px 0;
+    width: calc(50vw - 48px);
+  }
+ 
+  video#gumVideo {
+    margin: 0 10px 10px 0;
+  }
+}

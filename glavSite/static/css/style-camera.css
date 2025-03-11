@@ -1,0 +1,60 @@
+body {
+	margin: 0; 
+}
+.fon{
+	margin-left: 42%;
+	width: 700px;
+	height: auto;
+	padding: 10px 20px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+	border: 5px solid #4d4d4d;
+	color: black;
+}
+
+.settings {
+	margin-bottom: 10px;
+    text-align: center; 
+}
+
+.settings p {
+	font-size: 23px;
+}
+
+/* ��������� */
+
+button.gos {
+	width: 200px;
+	height: 65px;
+	font-size: 20px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #872a74;
+  	padding: 10px 0px;
+  	outline: none;
+	border: none;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+button.gos:focus {outline: none;}
+button.gos:hover { background: #7a2669; }
+button.gos:active { background: #7a2669; }
+
+button.cam {
+	border-radius: 20px/20px;
+	width: 200px;
+	height: 120px;
+	font-size: 20px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #872a74;
+  	padding: 10px 0px;
+  	outline: none;
+	border: none;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+button.cam:focus {outline: none;}
+button.cam:hover { background: #7a2669; }
+button.cam:active { background: #7a2669; }

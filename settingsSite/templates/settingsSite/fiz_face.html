@@ -1,0 +1,55 @@
+﻿{% extends "glavSite/maket.html" %}
+
+{% block head %}
+	<title>Reg-Compy</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/style-bul.css' %}" type="text/css">
+{% endblock head %}
+
+{% block content %}
+	<div class="fon">
+		<div class="hed">
+			<h3>Партнеры</h3>
+		</div>
+		<div class="pret-glav">
+			<fieldset>
+
+			<center>
+				<p>Введите Название Компании: <input></input></p>
+
+			<p>ФИО Генерального Директора: <input></input></p>
+			<p>Наличие ПОЛНОГО штата юристов: <input type="checkbox"></input></p>
+			<p>Основное направление деятельности компании:  <input></input></p>
+			<p>Сколько лет на рынке: <select id="selectvalue">
+
+				<option>Менее года</option>
+
+				<option>1 год</option>
+
+				<option>2 год</option>
+
+				<option>3 год</option>
+
+				<option>4 год</option>
+
+				<option>5 год</option>
+
+				<option>Более 5 лет</option>
+
+				</select></p>
+
+				<p>Раскажите о достижениях компании (пример: сколько довольных клиентов, надичие высококвалифицированных специалистов в области права и.т.д.):</p>
+
+				<textarea rows="5" cols="60" id="TITLE">
+				</textarea>
+
+				<p>Введите номер телефона рабочего факса: <input></input></p>
+
+				<p>Введите рабочую почту компании: <input></input></p>
+
+				<br><br><br>
+				<button>Отправить</button>	<a href = "{% url 'partners' %}"><button>Назад</button></a></center>
+			</fieldset>
+		</div>
+	</div>
+{% endblock content %}

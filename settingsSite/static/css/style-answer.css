@@ -1,0 +1,49 @@
+body {
+	margin: 0; 
+}
+.fon{
+	width: 18%;
+	margin-left: 50%;
+	height: auto;
+	padding: 10px 20px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+	border: 5px solid #4d4d4d;
+}
+
+.settings { 
+    text-align: center;
+	color: #fff;
+}
+
+.settings p {
+	font-size: 23px;
+}
+
+.settings i {
+	font-size: 30px;
+}
+
+/* ��������� */
+
+button.gos {
+	width: 300px;
+	height: 65px;
+	font-size: 20px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #6B8E23;
+  	padding: 10px 0px;
+  	outline: none;
+	border: none;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+button.gos:focus {outline: none;}
+button.gos:hover { background: #7a2669; }
+button.gos:active { background: #7a2669; }
+
+button a{
+	text-decoration: none;
+	color: white;
+}

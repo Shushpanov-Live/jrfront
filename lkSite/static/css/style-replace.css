@@ -1,0 +1,48 @@
+body {
+	font-family: Tahoma;
+	/* background-color: rgb(153,217,234); */
+	background-image: url("../image/A_1005_2.png");
+	margin: 0; 
+}
+.embl{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.fon{
+	margin: 100px auto;
+	width: 300px;
+	height: 130px;
+	padding: 20px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+	background-color: rgb(153,217,234);
+}
+
+.settings {
+	text-align: center;
+}
+
+.settings p {
+	font-size: 20px;
+}
+
+/* Настройки */
+
+button.gos {
+	width: 150px;
+	height: 50px;
+	font-size: 20px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #DC143C;
+  	padding: 10px 0px;
+  	outline: none;
+	border: none;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+button.gos:hover { background: rgb(232,95,76); } 
+button.gos:active { background: rgb(152,15,0); } 
+
+
+/*------------------------------Стили Паролей--------------------------*/

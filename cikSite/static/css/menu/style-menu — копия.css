@@ -1,0 +1,68 @@
+.top-menu {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+ul.ul-menu{
+	display: flex;
+	padding: 0;
+	justify-content: center;
+}
+li.li-menu{
+	list-style: none;
+	border-right: 1px solid #c7c8ca;
+}
+li.li-menu a{
+	text-decoration: none;
+	font-size: 18px;
+	display: block;
+	
+background: #ffffff;
+background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%);
+background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%);
+background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );
+
+	padding: 15px 20px 15px 20px;
+	color: #454547;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+}
+li.li-menu a i{
+	margin-right: 10px;
+	font-size: 25px;
+}
+li.li-menu a i{
+	margin-right: 15px;
+	font-size: 35px;
+}
+ul.ul-menu li:first-child{
+	border-left: 1px solid #b2b3b5;
+}
+ul.ul-menu li:last-child{
+	border-right: 1px solid #babbbb;
+}
+li.li-menu a:hover{
+	background: #454547;
+	color: white;
+	box-shadow: 1px 5px 10px -5px black;
+	transition: all 0.3s ease;
+}
+
+/* Меню ВЫБОРОВ выпадающее*/
+.top-menu li ul{
+	position: absolute;
+	min-width: 150px;
+	display: none;
+}
+.top-menu li > ul li{
+	border: 1px solid #c7c8ca;
+}
+.top-menu li > ul li a{
+	padding: 10px;
+	text-transform: none;
+	background: #e4e4e5;
+}
+.top-menu li:hover > ul{
+	display: block;
+}

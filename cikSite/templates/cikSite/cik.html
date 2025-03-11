@@ -1,0 +1,86 @@
+﻿{% extends "glavSite/maket.html" %}
+
+{% block head %}
+<title>cik</title>
+{% load static %}
+{#    <link rel="stylesheet" href="{% static 'css/style-cik.css' %}" type="text/css">#}
+{#    <link rel="stylesheet" href="{% static 'css/style-knopka.css' %}" type="text/css">#}
+    <link rel="stylesheet" href="{% static 'css/style-bul.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock head%}
+
+{% block content %}
+{% load static %}
+<div class="fon">
+    <div class="cic">
+        <p>
+            <font color="#DC143C" size="5" face="Arial Black">&nbsp&nbsp&nbsp&nbspЮрФронт</font>
+        <hr border="3px" color="#DC143C">
+        <p align="center"><font color="#DC143C" size="4" face="Arial Black">
+            &nbsp&nbspДобро пожаловать в ЮрФронт!
+        </font>
+        <hr border="3px" color="#DC143C">
+        </p>
+        </p>
+		
+		<!--1 документ -->
+		<p align="center"><font color="#DC143C" size="4" face="Arial Black">
+            &nbsp&nbspТест заполнения документа:
+        </font>
+        <center>
+            <a href="{% url 'newwapon' %}"><button class="b1">Создать</button></a>
+        </center>
+		
+		<!--dogovordog.docx -->
+		<p align="center"><font color="#DC143C" size="4" face="Arial Black">
+            &nbsp&nbspДоговор о передержки:
+        </font>
+        <center>
+            <a href="{% url 'dogovordog' %}"><button class="b1">Создать</button></a>
+        </center>
+
+        <!--Расписка о займе: -->
+		<p align="center"><font color="#DC143C" size="4" face="Arial Black">
+            &nbsp&nbspРасписка о займе:
+        </font>
+        <center>
+            <a href="{% url 'raspiska' %}"><button class="b1" onclick="">Создать</button></a>
+        </center>
+
+        <!--Доверенность на получение документа: -->
+		<p align="center"><font color="#DC143C" size="4" face="Arial Black">
+            &nbsp&nbspДоверенность на получение документа:
+        </font>
+        <center>
+            <a href="{% url 'doverennost' %}"><button class="b1" onclick="show('block')">Создать</button></a>
+        </center>
+
+        <!--Акт о приемке выполненных работ: -->
+		<p align="center"><font color="#DC143C" size="4" face="Arial Black">
+            &nbsp&nbspАкт о приемке выполненных работ:
+        </font>
+        <center>
+            <a href="{% url 'akt_vypolnennyh_rabot' %}"><button class="b1" onclick="show('block')">Создать</button></a>
+        </center>
+
+        <!--Справка для оформления жилого помещения в собственность граждан: -->
+		<p align="center"><font color="#DC143C" size="4" face="Arial Black">
+            &nbsp&nbspСправка для оформления жилого помещения в собственность граждан:
+        </font>
+        <center>
+            <a href="{% url 'spravka' %}"><button class="b1" onclick="show('block')">Создать</button></a>
+        </center>
+
+		<!--Бланк заказа: -->
+		<p align="center"><font color="#DC143C" size="4" face="Arial Black">
+            &nbsp&nbspСравнить документы:
+        </font>
+        <center>
+            <a href="{% url 'comparison' %}"><button class="b1">Сравнить</button></a>
+        </center>
+		*На первый документ накладывается второй и вам выводится результат проверки
+
+    </div>
+</div>
+
+{% endblock  %}

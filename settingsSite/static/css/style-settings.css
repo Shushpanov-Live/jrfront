@@ -1,0 +1,81 @@
+﻿body {
+	margin: 0; 
+}
+.embl{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.fon{
+	width: 20%;
+	margin-left: 50%;
+	height: auto;
+	padding: 20px;
+	border-radius: 20px/20px;
+	/*box-shadow: 2px 2px 5px rgba(0,0,0,0.82);*/
+	/*background-color: #50C878;*/
+}
+
+.settings { 
+    text-align: center; 
+}
+/* Настройки */
+
+button.gos {
+    padding: 10px 14px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.701961) 0px 5px 12px;
+    -webkit-transform-origin: 50% 1px;
+    -webkit-transition: all 0.15s ease-in-out;
+    background: #6B8E23;
+    border-color: rgba(255, 255, 255, 0.027451) rgba(255, 255, 255, 0.027451) rgba(255, 255, 255, 0.027451) #FF8C39 ;
+    border-style: solid;
+    border-width: 1px 1px 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.701961) 0px 5px 12px;
+    color: #fff;
+    display:block;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 25px;
+    letter-spacing: 4px;
+    text-shadow: rgb(0, 0, 0) 0px 1px 1px;
+    line-height: 30px;
+    position: relative;
+    margin: 20px auto;
+    text-align: center;
+    text-decoration:none;
+}
+button.gos:focus {outline: none;}
+button.gos:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    border-width: 1px 1px 1px 7px;
+}
+button.gos:active {
+    -webkit-box-shadow:inset rgba(0, 0, 0, 0.701961) 0px 7px 12px,rgba(0, 0, 0, 0.701961) 0px 2px 12px;
+    text-shadow: rgb(0, 0, 0) 0px -2px 1px;
+    margin-top: 1px;
+}
+
+/* button a{
+	text-decoration: none;
+	color: white;
+}
+
+.settings i {
+	font-size: 24px;
+}
+
+button.bell {
+	width: 65px;
+	height: 65px;
+	color: white;
+	cursor: pointer;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #DC143C; 
+  	padding: 10px 0px;
+  	outline: none;
+	border: none;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+button.bell:hover { background: rgb(232,95,76); } 
+button.bell:active { background: rgb(152,15,0); } */

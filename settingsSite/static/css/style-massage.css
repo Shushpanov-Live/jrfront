@@ -1,0 +1,76 @@
+body {
+	margin: 0; 
+}
+
+.fon{
+	width: 40%;
+	margin-left: 40%;
+	height: 100%;
+	padding: 20px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+	border: 5px solid #4d4d4d;
+	color: black;
+}
+
+.settings { 
+    text-align: center;
+}
+
+.settings p {
+	font-size: 20px;
+}
+
+/* ��������� */
+
+button.gos {
+	width: 300px;
+	height: 50px;
+	font-size: 20px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #6B8E23;
+  	padding: 10px 0px;
+  	outline: none;
+	border: none;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+button.gos:focus {outline: none;}
+button.gos:hover { background: #7a2669; }
+button.gos:active { background: #7a2669; }
+
+
+/*------------------------------����� ��� ��������--------------------------*/
+textarea.comment{
+	width: 450px;
+	height: 100px;
+	resize: none;
+	border-radius: 10px 10px 10px 10px;
+	padding-left: 5px;
+	
+}
+
+textarea:focus {
+	outline: none;
+}
+
+button.star {
+	margin-left: -5px;
+	margin-bottom: 20px;
+	width: 70px;
+	height: 70px;
+	font-size: 30px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #6B8E23;
+	padding: 10px 0px;
+  	outline: none;
+	border: none;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+button.star:focus {outline: none;}
+button.star:hover { background: #7a2669; }
+button.star:active { background: #7a2669; }

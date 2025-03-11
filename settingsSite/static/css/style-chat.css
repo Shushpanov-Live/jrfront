@@ -1,0 +1,82 @@
+body {
+	margin: 0; 
+}
+
+.fon{
+	width: 35%;
+	margin-left: 40%;
+	height: auto;
+	padding: 10px 20px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+	border: 5px solid #4d4d4d;
+}
+
+.settings { 
+    text-align: center;
+	color: #fff;
+}
+
+.settings p {
+	font-size: 20px;
+}
+
+/* ��������� */
+
+button.gos {
+	margin-top: 20px;
+	margin-left: -5px;
+	width: 100px;
+	height: 50px;
+	font-size: 20px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #6B8E23;
+  	padding: 10px 0px;
+  	outline: none;
+	border: none;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+button.gos:focus {outline: none;}
+button.gos:hover { background: #7a2669; }
+button.gos:active { background: #7a2669; }
+
+
+/*------------------------------����� ��� ����--------------------------*/
+textarea.comment{
+	margin-top: 25px;
+	width: 450px;
+	height: 100px;
+	resize: none;
+	border-radius: 10px 10px 10px 10px;
+	padding-left: 5px;
+	
+}
+
+textarea:focus {
+	outline: none;
+}
+
+#col2 i{
+	font-size: 50px;
+}
+
+table {
+	border-spacing: 0px 0px;
+}
+
+#col1 {
+    text-align: left;
+	margin-left: 15px;
+   }
+
+#col2 {
+	width: 100px;
+   }
+
+#col3 {
+	border: 1px solid black;
+	border-radius: 20px/20px;
+	/*border-radius: 10px 10px 10px 10px;*/
+   }

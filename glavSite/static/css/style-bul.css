@@ -1,0 +1,136 @@
+﻿.fon{
+	width: 40%;
+	margin-left: 40%;
+	height: 100%;
+	padding: 10px 20px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+	border: 5px solid #4d4d4d;
+	background-color: #fff;
+	/*background-color: rgb(153,217,234);*/
+}
+
+.hed {
+	color: #2c2c2c;
+	margin-top: 0px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #fff;
+	text-align: center;
+	font-size: 20px;
+}
+
+button.gos {
+	width: 100%;
+	height: 100%;
+	font-size: 17px;
+	margin: 0px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #6B8E23;
+  	padding: 0px 0px;
+  	outline: none;
+	border: none;
+}
+button.gos:focus {outline: none;}
+button.gos:hover { background: #00FA9A; }
+button.gos:active { background: #00FA9A; }
+
+.pret-glav{
+	margin-top: 0px;
+	border-radius: 20px/20px;
+}
+
+table.stroka {
+	width: 100%; /* Ширина таблицы */
+	/* border: 3px solid black; */
+	border-spacing: 0px 0px;
+}
+
+table.kand {
+    width: 100%; /* Ширина таблицы */
+    height: 150px;
+	table-layout: fixed;
+	overflow: hidden;
+	/*border-radius: 20px/20px;*/
+	border: 3px solid #2c2c2c;
+	margin-top: 10px;
+	border-spacing: 0px 0px;
+}
+
+td {
+	padding: 0px;
+}
+
+#col1 {
+    width: 20%; /* Ширина первой колонки */
+    height: 150px;
+	border-radius: 20px;
+    background: #fc0; /* Цвет фона первой колонки */
+   }
+
+#col2 {
+    background: #a7bab2; /* Цвет фона второй колонки */
+	text-align: center;
+   }
+
+#col3 {
+    width: 90px; /* Ширина третьей колонки */
+    background: green; /* Цвет фона третьей колонки */
+   }
+
+#col4 {
+	text-align: center;
+	height: 30px;
+   }
+
+button.app {
+	width: 100%;
+	height: 100%;
+	font-size: 17px;
+	margin: 0px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none;
+  	background: darkred;
+  	padding: 0px 0px;
+  	outline: none;
+	border: none;
+}
+button.app:focus {outline: none;}
+button.app:hover { background: red; }
+button.app:active { background: red; }
+
+/*Меню выборов*/
+.vib-menu ul {list-style: none}
+.vib-menu ul li a{
+    font-size: 19px;
+    color: #2c2c2c;
+    display: block;
+    margin-top: 3px;
+}
+.vib-menu ul li:hover, .vib-menu ul li a:hover {
+    color: #872a74;
+    text-decoration: none;
+}
+/*Конец меню*/
+
+/*Меню партий*/
+.partii-menu ul {list-style: none}
+.partii-menu ul li a{
+    font-size: 19px;
+    color: #2c2c2c;
+    display: block;
+    margin-top: 3px;
+}
+.partii-menu ul li:hover, .partii-menu ul li a:hover {
+    color: #872a74;
+    text-decoration: none;
+}
+/*Конец меню-партий*/
+
+.pret-glav p {
+	color: black;
+	text-align: center;
+}

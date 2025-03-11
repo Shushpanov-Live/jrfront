@@ -1,0 +1,20 @@
+﻿{% extends "glavSite/maket.html" %}
+
+{% block head %}
+	<title>Bullition</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/style-bul.css' %}" type="text/css">
+{% endblock head %}
+
+{% block content %}
+	<div class="fon">
+		<div class="hed">
+			<h3>Все документы</h3>
+		</div>
+		<div class="pret-glav">
+            {% for c in post %}
+              <a href="{{ c.get_absolute_url }}"><li>{{ c.title }}</li></a> <br>
+            {% endfor %}
+		</div>
+	</div>
+{% endblock content %}

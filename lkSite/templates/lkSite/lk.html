@@ -1,0 +1,43 @@
+﻿{% extends "glavSite/maket.html" %}
+
+{% block head %}
+	<title>lk</title>
+{% load static %}
+	<link rel="stylesheet" href="{% static 'css/style-kand.css' %}">
+{% endblock head %}
+
+{% block content %}
+	<div class="fon">
+	<form>
+		<table border="1">
+    		<tr>
+        		<td rowspan="4" id="col1">{{ user.username }}</td>
+			<td colspan="2" id="col4">Информация об участнике голосования</td>
+    		</tr>
+
+		<tr>
+			<td id="col2"><p>Ваш номер голоса: <strong>{{ user.id }}</strong></p></td>
+			<td id="col3">{{ user.last_name }} {{ user.first_name }}</td>
+		</tr>
+
+		<tr>
+			<td id="col2">Участок</td>
+			<td id="col3">информация</td>
+		</tr>
+		
+		<tr>
+			<td id="col2">Статус</td>
+			<td id="col3">Ученик</td>
+		</tr>
+
+		</table>
+		
+		<div class="lk-isb">
+			<button class="gos" formaction="{% url 'account_set_password' %}">Сменить пароль</button>
+			<button class="gos" formaction="#">История голосов</button>
+		</div>
+
+	</form>
+	</div>
+{% endblock content %}
+

@@ -1,0 +1,64 @@
+{% extends "glavSite/maket.html" %}
+
+{% block head %}
+<title>cik</title>
+{% load static %}
+{#    <link rel="stylesheet" href="{% static 'css/style-cik.css' %}" type="text/css">#}
+{#    <link rel="stylesheet" href="{% static 'css/style-knopka.css' %}" type="text/css">#}
+    <link rel="stylesheet" href="{% static 'css/style-bul.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock head%}
+
+{% block content %}
+{% load static %}
+    <div class="fon">
+    <div class="cic">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Подача заявки</h1>
+
+            <!--{{ form.title }}<br>
+            {{ form.number_izb }}<br>
+            {{ form.number_kand }}<br>
+            {{ form.time }}<br>
+            {{ form.email }}<br>-->
+
+            <table>
+                <tr>
+                    <td><input type="text" size="40" placeholder="ФИО заемщика" name="namer"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" size="40" placeholder="Город" name="city"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" size="40" placeholder="ФИО кредитора" name="moneygive"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" size="40" placeholder="Сумма заема" name="summa"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" size="40" placeholder="Фамилия и инициалы" name="name"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="date" size="40" placeholder="Дата" name="time"></td>
+                </tr>
+            </table>
+
+            <div class="group">
+                <input class="pravila" type="checkbox" value="ДА" required> Правила пользования сайтом.
+            </div>
+            <span>{{ error }}</span>
+            <div class="group">
+                <button class="vib" type="submit">Подготовить</button>
+            </div>
+        </form>
+        <div class="group"><a href="{% url 'cik' %}"><button class="vib" type="submit" >Назад</button></a></div>
+    </div>
+</div>
+
+{% endblock  %}

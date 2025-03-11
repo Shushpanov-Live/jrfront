@@ -1,0 +1,27 @@
+﻿{% extends "glavSite/maket.html" %}
+
+{% block head %}
+	<title>Reg</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/style-bul.css' %}" type="text/css">
+{% endblock head %}
+
+{% block content %}
+	<div class="fon">
+		<div class="hed">
+			<h3>Партнеры</h3>
+		</div>
+		<div class="pret-glav">
+			<fieldset>
+			<center>Добро пожаловать! Платформа ЮрFront рада пригласить вас стать нашими партнерами.
+					Для этого выберите раздел соответствующий вашему статусу.
+					Статус определит от какого лица (Физ или Юр) вы будете оказывать юр. помощь нашим пользователям.
+					Для того чтобы наше знакомство произошло максимально открыто, мы просим пройти вас процедуру подачи заявки.
+					Уверяем она не займет много времени.
+					<br><br><br>
+				<a href = "{% url 'legal_face' %}"><button>Юр.Лицо</button></a>
+				<a href = "{% url 'fiz_face' %}"><button>Физ.Лицо</button></a></center>
+			</fieldset>
+		</div>
+	</div>
+{% endblock content %}

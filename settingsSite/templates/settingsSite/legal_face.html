@@ -1,0 +1,55 @@
+﻿{% extends "glavSite/maket.html" %}
+
+{% block head %}
+	<title>Reg-Compy</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/style-bul.css' %}" type="text/css">
+{% endblock head %}
+
+{% block content %}
+	<div class="fon">
+		<div class="hed">
+			<h3>Партнеры</h3>
+		</div>
+		<div class="pret-glav">
+			<fieldset>
+
+			<center>
+				<p>Введите свое ФИО: <input></input></p>
+
+			<p>Выберите правовой профиль: <input></input></p>
+			<p>Наличие ПОЛНОГО высшего образования: <input type="checkbox"></input></p>
+			<p>В каких организациях вы работали по специальности: <input></input></p>
+			<p>Опыт работы в годах: <select id="selectvalue">
+
+				<option>Менее года</option>
+
+				<option>1 год</option>
+
+				<option>2 год</option>
+
+				<option>3 год</option>
+
+				<option>4 год</option>
+
+				<option>5 год</option>
+
+				<option>Более 5 лет</option>
+
+				</select></p>
+
+				<p>Раскажите о своих достижениях:</p>
+
+				<textarea rows="5" cols="60" id="TITLE">
+				</textarea>
+
+				<p>Введите свой номер телефона: <input></input></p>
+
+				<p>Введите свою рабочую почту: <input></input></p>
+
+				<br><br><br>
+				<button>Отправить</button>	<a href = "{% url 'partners' %}"><button>Назад</button></a></center>
+			</fieldset>
+		</div>
+	</div>
+{% endblock content %}

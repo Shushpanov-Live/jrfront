@@ -1,0 +1,22 @@
+{% extends "glavSite/maket.html" %}
+
+{% block head %}
+	<title>Главная</title>
+{% load static %}
+    <link href="{% static 'css/sitesite.css' %}" rel="stylesheet" type="text/css">
+{% endblock head %}
+
+
+{% block content %}
+{% if request.user.is_authenticated %}
+
+{% else %}
+	<marquee class="slide1" behavior="slide" scrollamount="85">
+			<div  class="fon">
+				<form>
+				<button formaction="{% url 'twoopen' %}" class="button20">ЮрFront</button>
+				</form>
+			</div>
+	</marquee>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,22 @@
+﻿{% extends "glavSite/maket.html" %}
+
+{% block head %}
+	<title>Settings</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/style-settings.css' %}" type="text/css">
+{% endblock head %}
+
+{% block content %}
+	<div class="fon">
+	<form>
+		<div class="settings">
+			<button class="gos" formaction="question/chat/">Спец 1</button>
+			<button class="gos" formaction="question/chat/">Спец 2</button>
+			<button class="gos" formaction="question/chat/">Спец 3</button>
+<!--			<button class="gos" formaction="{% url 'notif' %}">Уведомление</button>-->
+<!--			<button class="gos" formaction="language/">Выбор языка</button>-->
+<!--			<button class="gos" formaction="help/">Помощь</button>-->
+		</div>
+	</form>
+	</div>
+{% endblock content %}

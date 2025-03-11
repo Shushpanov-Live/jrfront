@@ -1,0 +1,24 @@
+{% extends "glavSite/maket.html" %}
+
+{% block head %}
+	<title>Раздел</title>
+{% load static %}
+    <link href="{% static 'css/sitesiteTwoopen.css' %}" rel="stylesheet" type="text/css">
+{% endblock head %}
+
+
+{% block content %}
+{% if request.user.is_authenticated %}
+
+{% else %}
+	<marquee class="slide1" behavior="slide" scrollamount="85">
+			<div  class="fon">
+				<form>
+				<button formaction="{% url 'account_login' %}" class="button21">Для Бизнеса</button>
+				<br>
+				<button formaction="{% url 'account_login' %}" class="button21">Для учебы</button>
+				</form>
+			</div>
+	</marquee>
+{% endif %}
+{% endblock content %}

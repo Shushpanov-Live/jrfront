@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{% block head %}
+    {% block title %}<title></title>{% endblock %}
+	{% endblock %}
+
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/menu/style-menu.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/fontawesome-free-5.12.0-web/css/all.css' %}" type="text/css">
+</head>
+<body style="">
+    <p class="embl"><img src="{% static 'image/emble2.png' %}" width="140" height="100" alt="Фотография"></p>
+	<header>
+		<div class="top-menu">
+			<ul class="ul-menu">
+				<li class="li-menu"><a href="/glav/"><i class="far fa-id-badge"></i>Главная</a></li>
+
+				<li class="li-menu"><a href="/glav/spisok_id/"><i class="fas fa-clipboard-list"></i>Список ID</a></li>
+
+				<li class="li-menu"><a href="/glav/leader_top/"><i class="fas fa-chart-bar"></i>Лидеры голосования</a></li>
+
+				<li class="li-menu"><a href="/bulletin/"><i class="fas fa-scroll"></i>Бюллетень</a></li>
+
+				<li class="li-menu"><a href="/settings/"><i class="fas fa-cog"></i>Настройки</a></li>
+			</ul>
+		</div>
+	</header>
+
+    {% block content %}
+
+    {% endblock  %}
+
+</body>
+</html>

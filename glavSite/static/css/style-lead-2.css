@@ -1,0 +1,115 @@
+body {
+	margin: 0; 
+}
+
+h2 {
+	margin-left: 50%;
+	color: black;
+}
+
+h1 {
+	margin-top: 150px;
+	color: black;
+}
+.fon {
+	width: 60%;
+	margin-left: 30%;
+	height: 100%;
+	border-radius: 20px/20px;
+	padding: 10px 20px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+	border: 5px solid #4d4d4d;
+}
+
+
+#links *{
+	margin:0;
+	padding:0;
+	color: black;
+}
+
+nav *{
+	margin:0;
+	padding:0;
+}
+
+table {
+	width: 100%;
+	color: black;
+}
+
+#rig {
+	text-align: center;
+	width: 40%;
+}
+
+nav ul {
+	list-style:none;
+	background: #6B8E23;
+}
+
+nav >ul> li{
+	float: left;
+	background: #6B8E23;
+	border:8px solid #FFFFFF;
+}
+
+nav ul :after{
+	content:"";
+	display: block;
+	clear: both;
+}
+
+nav ul li a{
+	display: inline-block;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: black;
+	width: 125px;
+}
+
+nav ul li a:hover {
+	background-color:#DDA0DD;
+	text-decoration: none;
+}
+
+nav ul ul {
+	display:none;
+	position:absolute;
+}
+
+nav ul li:hover ul{
+	display: block;
+}
+
+progress {
+appearance: none;
+-moz-appearance: none;
+-webkit-appearance: none;
+border: none;
+background-size: auto;
+width: 400px; height: 25px;
+}
+
+/* Firefox  */
+progress {
+background: #fff;
+}
+/* Chrome */
+progress::-webkit-progress-bar {
+background: #fff;
+}
+
+/* IE10 */
+progress {
+color: #872a74;
+}
+/* Firefox */
+progress::-moz-progress-bar {
+background: #872a74;
+}
+/* Chrome */
+progress::-webkit-progress-value {
+background: #872a74;
+}
+

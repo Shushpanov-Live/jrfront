@@ -1,0 +1,62 @@
+{% extends "glavSite/maket.html" %}
+
+{% block head %}
+<title>cik</title>
+{% load static %}
+{#    <link rel="stylesheet" href="{% static 'css/style-cik.css' %}" type="text/css">#}
+{#    <link rel="stylesheet" href="{% static 'css/style-knopka.css' %}" type="text/css">#}
+    <link rel="stylesheet" href="{% static 'css/style-bul.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock head%}
+
+{% block content %}
+{% load static %}
+    <div class="fon">
+    <div class="cic">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Подача заявки</h1>
+
+            <table>
+                <tr>
+                    <td><input type="text" size="40" placeholder="Гражданин" name="grazdan"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" size="40" placeholder="Адресс" name="adress"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" size="40" placeholder="С какого года по адрессу" name="yer"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="date" size="40" placeholder="С" name="dateA"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="date" size="40" placeholder="По" name="dateB"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" size="40" placeholder="Работа" name="job"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="date" size="40" placeholder="Дата" name="dateC"></td>
+                </tr>
+            </table>
+
+            <div class="group">
+                <input class="pravila" type="checkbox" value="ДА" required> Правила пользования сайтом.
+            </div>
+            <span>{{ error }}</span>
+            <div class="group">
+                <button class="vib" type="submit">Подготовить</button>
+            </div>
+        </form>
+        <div class="group"><a href="{% url 'cik' %}"><button class="vib" type="submit" >Назад</button></a></div>
+    </div>
+</div>
+
+{% endblock  %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style-site_base.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+	body {
+		/*background-image: url("{% static 'image/grey-stucco.png' %}");*/
+    	/*background-repeat: repeat;*/
+		background: #2c2c2c;
+	}
+</style>
+
+</head>
+<body style="">
+    <aside>
+		<img src="{% static 'image/emble2.png' %}" width="80" height="60" alt="Фотография">
+		<span class="logo">MyVoiceStudy</span>
+	</aside>
+
+	<main>
+		{% block content %}
+
+    	{% endblock  %}
+	</main>
+</body>
+</html>

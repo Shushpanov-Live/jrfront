@@ -1,0 +1,265 @@
+.fon{
+	width: 55%;
+	margin-left: 33%;
+	height: auto;
+	padding: 10px 20px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+	border: 5px solid #4d4d4d;
+}
+
+.settings {
+    text-align: center;
+	color: black;
+}
+
+.img1{
+	width: 950px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img1:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img2{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img2:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img3{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img3:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img4{
+	width: 300px;
+	height: 50px;
+	border: 3px solid transparent;
+}
+
+.img4:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img5{
+	width: 500px;
+	height: 130px;
+	border: 3px solid transparent;
+}
+
+.img5:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img6{
+	width: 300px;
+	height: 300px;
+	border: 3px solid transparent;
+}
+
+.img6:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img7{
+	width: 180px;
+	height: 150px;
+	border: 3px solid transparent;
+}
+
+.img7:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img8{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img8:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img9{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img9:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img10{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img10:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img11{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img11:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img12{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img12:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img13{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img13:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img14{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img14:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img15{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img15:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img16{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img16:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img17{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img17:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img18{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img18:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img19{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img19:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img20{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img20:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img21{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img21:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img22{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img22:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img23{
+	width: 300px;
+	height: 80px;
+	border: 3px solid transparent;
+}
+
+.img23:hover{
+	border: 3px solid #FFFFFF;
+}
+
+.img1:hover{border:3px solid #FFFFFF;}
+
+button.gos {
+	margin-top: 20px;
+	margin-left: -5px;
+	width: 200px;
+	height: 50px;
+	font-size: 20px;
+	cursor: pointer;
+	color: white;
+  	text-decoration: none;
+  	user-select: none; 
+  	background: #6B8E23;
+  	padding: 10px 0px;
+  	outline: none;
+	border: none;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+button.gos:focus {outline: none;}
+button.gos:hover { background: #7a2669; }
+button.gos:active { background: #7a2669; }

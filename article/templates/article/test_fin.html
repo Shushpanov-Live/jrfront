@@ -1,0 +1,31 @@
+﻿{% extends "glavSite/maket.html" %}
+
+{% block head %}
+	<title>Bullition</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/style-bul.css' %}" type="text/css">
+{% endblock head %}
+
+{% block content %}
+	<aside>
+		<img src="{% static 'image/emble2.png' %}" width="80" height="60" alt="Фотография">
+		<span class="logo">ЮрFront</span>
+		<h3>Навигация</h3>
+			<ul>
+                {% for c in categories %}
+                    <a href="{{ c.get_absolute_url }}"><li>{{ c.title }}</li></a>
+                {% endfor %}
+			</ul>
+	</aside>
+
+	<div class="fon">
+		<div class="hed">
+			<h3>Все документы</h3>
+		</div>
+		<div class="pret-glav">
+                            {% for product in products %}
+                                    <a href="{{ product.get_absolute_url }}">{{ product.title }}</a> <br><br><br>
+                            {% endfor %}
+		</div>
+	</div>
+{% endblock content %}

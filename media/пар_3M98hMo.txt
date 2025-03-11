@@ -1,0 +1,425 @@
+import roman
+import requests
+from bs4 import BeautifulSoup
+
+import re
+import json
+from abc import ABC, abstractmethod
+
+# ================================= Configuration ==========================================
+
+codecs = ['CC', 'AC']
+
+baseUrl = 'http://www.consultant.ru'
+
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                  'Chrome/90.0.4430.212 Safari/537.36',
+}
+
+configs = {
+    'CC': {
+        'name': 'Уголовный кодекс Российской Федерации. Особенная часть',
+        'filename': 'codex-cc.json',
+        'codex': 'cc',
+        'targetUrl': f'{baseUrl}/document/cons_doc_LAW_10699/',
+        'part_selector': 'Особенная часть',
+        'section_selector': 'Раздел',
+        'chapter_selector': 'Глава',
+        'article_selector': 'Статья',
+        'head_part_prefix': 'sp',
+        'control_articles_count': 381,
+    },
+
+    'AC': {
+        'name': 'Кодекс Российской Федерации об административных правонарушениях. Особенная часть',
+        'filename': 'codex-ac.json',
+        'codex': 'ac',
+        'targetUrl': f'{baseUrl}/document/cons_doc_LAW_34661/',
+        'section_selector': 'Раздел II. Особенная часть',
+        'chapter_selector': 'Глава',
+        'article_selector': 'Статья',
+        'head_part_prefix': 'sp',
+        'control_articles_count': 762,
+    },
+}
+
+# ==========================================================================================
+
+config = {}
+
+
+class AbstractCodexPart(ABC):
+
+    @abstractmethod
+    def get_items(self):
+        pass
+
+    @abstractmethod
+    def serialize(self):
+        pass
+
+    @abstractmethod
+    def create_id(self):
+        pass
+
+    @abstractmethod
+    def get_page_soup(self):
+        pass
+
+    @abstractmethod
+    def get_title(self):
+        pass
+
+    @abstractmethod
+    def get_number(self):
+        pass
+
+    @abstractmethod
+    def clear_text(self):
+        pass
+
+
+class BaseCodexPart(AbstractCodexPart):
+    instances = []
+
+    def __init__(self, node=None, parent=None, head=False, paragraph=False):
+        self.serializable_properties = ['id', 'type', 'number', 'text', 'title', 'link', 'items']
+
+        self.node = node
+        self.items = []
+        self.id = None
+        self.text = None
+        self.head = head
+
+        self.type = ''
+        self.id_prefix = ''
+
+        self.__class__.instances.append(self)
+        BaseCodexPart.instances.append(self)
+
+        if parent:
+            self.parent = parent
+
+        if node and not paragraph:
+            self.title = self.get_title()
+            self.link = baseUrl + node.a['href']
+            self.number = self.get_number()
+
+    def __str__(self):
+        return self.title
+
+    def get_page_soup(self):
+        data = requests.get(self.link, headers=headers).text
+        return BeautifulSoup(data, 'html.parser')
+
+    def serialize(self):
+        serialized_output = {}
+        for prop in self.serializable_properties:
+            if prop in self.__dict__.keys():
+                if prop == 'items' and len(self.items) > 0:
+                    serialized_output[prop] = list(map(lambda x: x.serialize(), self.items))
+                else:
+                    if self.__dict__[prop]:
+                        serialized_output[prop] = self.__dict__[prop]
+
+        return serialized_output
+
+    def get_items(self):
+        pass
+
+    def get_title(self):
+        return ' '.join(self.node.a.text.split(' ')[2:])
+
+    def get_number(self):
+        number_part = self.node.a.text.split(' ')[1]
+
+        if not number_part:
+            return ''
+
+        try:
+            int(number_part[0])
+            return number_part[:-1]
+
+        except ValueError:
+            try:
+                return roman.fromRoman(number_part[:-1])
+            except:
+                return ''
+
+    def create_id(self):
+        have_parent = 'parent' in self.__dict__.keys()
+        if have_parent and self.head:
+            return f'{self.parent.id}_{config["head_part_prefix"]}'
+
+        if have_parent and self.number:
+            return f'{self.parent.id}_{self.id_prefix}{str(self.number)}'
+
+        return self.id_prefix
+
+    def clear_text(self):
+        filters = [
+            '\(см.*?\)',
+        ]
+        items_to_cut = []
+        for filter in filters:
+            items_to_cut += re.findall(filter, self.text)
+        for item in items_to_cut:
+            self.text = self.text.replace(item, '')
+
+
+class Paragraph(BaseCodexPart):
+    instances = []
+
+    def __init__(self, node, parent):
+        super().__init__(node, parent, paragraph=True)
+        self.type = 'paragraph'
+        self.id_prefix = 'pr'
+
+        self.number = self.get_number()
+        self.id = self.create_id()
+
+        self.text = self.get_text()
+        self.clear_text()
+
+    def __str__(self):
+        return self.text
+
+    def add_text(self, text):
+        self.text += '\n ' + text
+        self.clear_text()
+
+    def get_text(self):
+        return ' '.join(self.node.text.split(' ')[1:])
+
+    def get_number(self):
+        number_part = self.node.text.split(' ')[0]
+
+        if not number_part:
+            return ''
+
+        try:
+            int(number_part[0])
+            return number_part[:-1]
+
+        except ValueError:
+            try:
+                return roman.fromRoman(number_part[:-1])
+            except:
+                return ''
+
+
+class Article(BaseCodexPart):
+    instances = []
+
+    def __init__(self, node, parent, head=False):
+        super().__init__(node, parent, head)
+        self.type = 'article'
+        self.id_prefix = 'ar'
+        self.id = self.create_id()
+        self.text = None
+
+        if self.text:
+            self.clear_text()
+
+        self.get_items()
+
+    def get_items(self):
+
+        def is_paragraph(span):
+            try:
+                int(span.text[0])
+                if not span.text.split(' ')[0].endswith('.'):
+                    return False
+                return True
+            except (ValueError, IndexError):
+                return False
+
+        soup = self.get_page_soup()
+        text = soup.find('div', {'class': 'text'})
+        spans = text.find_all('span')
+        paragraph_is_open = False
+        for span in spans:
+            if 'Примечан' in span.text:
+               break
+            if is_paragraph(span):
+                paragraph_is_open = True
+                self.items.append(Paragraph(
+                    node=span,
+                    parent=self,
+                ))
+            elif paragraph_is_open:
+                self.items[-1].add_text(span.text)
+
+        if len(self.items) == 0 and len(spans) > 6:
+            self.text = ''.join((text.text.split('.')[1:])).lstrip()
+            try:
+                int(self.text[0])
+                self.text = self.text[1:].lstrip()
+            except ValueError:
+                pass
+
+
+class Chapter(BaseCodexPart):
+    instances = []
+
+    def __init__(self, node, parent, head=False):
+        super().__init__(node, parent, head)
+        self.type = 'chapter'
+        self.id_prefix = 'ch'
+        self.id = self.create_id()
+
+        self.get_items()
+
+    def get_items(self):
+        soup = self.get_page_soup()
+        list_items = soup.find_all('li')
+        for li in list_items:
+            if config['article_selector'] in str(li):
+                article = Article(
+                    parent=self,
+                    node=li
+                )
+                self.items.append(article)
+
+
+class Section(BaseCodexPart):
+    instances = []
+
+    def __init__(self, node, parent, head=False):
+        super().__init__(node, parent, head)
+        self.type = 'section'
+        self.id_prefix = 'se'
+        self.id = self.create_id()
+
+        self.get_items()
+
+    def get_items(self):
+        soup = self.get_page_soup()
+        list_items = soup.find_all('li')
+        for li in list_items:
+            if config['chapter_selector'] in str(li):
+                chapter = Chapter(
+                    parent=self,
+                    node=li
+                )
+                self.items.append(chapter)
+
+
+class Part(BaseCodexPart):
+    instances = []
+
+    def __init__(self, node, parent, head=False):
+        super().__init__(node, parent, head)
+        self.type = 'part'
+        self.id_prefix = 'pt'
+        self.id = self.create_id()
+
+        self.title = node.a.text
+
+        self.get_items()
+
+    def get_items(self):
+        soup = self.get_page_soup()
+        list_items = soup.find_all('li')
+        for li in list_items:
+            if config['section_selector'] in str(li):
+                section = Section(
+                    parent=self,
+                    node=li
+                )
+                self.items.append(section)
+
+
+class Codex(BaseCodexPart):
+    instances = []
+
+    def __init__(self, config):
+        super().__init__()
+        self.type = 'codex'
+        self.id_prefix = config['codex']
+        self.id = self.create_id()
+        self.config = config
+        self.title = config['name']
+        self.link = config['targetUrl']
+        self.items = []
+
+        self.get_items()
+
+    def get_json(self):
+        return json.dumps(self.serialize(), ensure_ascii=False)
+
+    def write_to_file(self):
+        with open(config['filename'], "w", encoding='utf8') as file:
+            file.write(self.get_json())
+
+    def get_items(self):
+        print('Parsing ' + self.title + '...')
+
+        if 'part_selector' in self.config.keys():
+            head_selector = 'part_selector'
+            base_class = Part
+
+        elif 'section_selector' in self.config.keys():
+            head_selector = 'section_selector'
+            base_class = Section
+
+        elif 'chapter_selector' in self.config.keys():
+            head_selector = 'chapter_selector'
+            base_class = Chapter
+
+        else:
+            head_selector = 'article_selector'
+            base_class = Article
+
+        soup = self.get_page_soup()
+        list_items = soup.find_all('li')
+
+        for li in list_items:
+            if self.config[head_selector] in str(li):
+                item = base_class(node=li, parent=self, head=True)
+                self.items.append(item)
+
+
+if __name__ == '__main__':
+
+    def log_result():
+        print(f'Parsing of {config["name"]} complete!')
+        print(f'parsed: {str(len(Part.instances))} parts.')
+        print(f'parsed: {str(len(Section.instances))} sections.')
+        print(f'parsed: {str(len(Chapter.instances))} chapters.')
+        print(f'parsed: {str(len(Article.instances))} articles.')
+
+    def clear_all_instances():
+        for item in BaseCodexPart.instances:
+            item.instances.clear()
+        BaseCodexPart.instances.clear()
+
+    def control_articles_count():
+        if 'control_articles_count' in config.keys() and len(Article.instances) < config['control_articles_count']:
+            raise Exception(f'Parsing error! :( Received {len(Article.instances)} articles,'
+                            f' but expected more than {config["control_articles_count"]}')
+
+    def control_duplicates():
+        unique_ids = set()
+        for item in BaseCodexPart.instances:
+            if item.id in unique_ids:
+                print(f'Duplicated id detected! :( ID: {item.id}')
+            unique_ids.add(item.id)
+        if len(unique_ids) < len(BaseCodexPart.instances):
+            raise Exception('Process crashed in case of founding aforecited id-duplicates.')
+
+    def process():
+        codex = Codex(config)
+        control_articles_count()
+        control_duplicates()
+        log_result()
+        clear_all_instances()
+
+        return codex
+
+
+    for codex in codecs:
+        config = configs[codex]
+        codex = process()
+        codex.write_to_file()
